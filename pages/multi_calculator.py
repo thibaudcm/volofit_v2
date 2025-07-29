@@ -90,6 +90,10 @@ if Plane.get_by_manufacturer('Boeing'):
     total_price_boeing = sum(plane.price for plane in boeing_planes)
     st.markdown(f"**Total price for Boeing planes:** ${total_price_boeing:,}")
     
+    if "total_price_airbus" not in globals():
+        total_price_airbus = 0
+    if "total_price_boeing" not in globals():
+        total_price_boeing = 0
     st.metric("Total price", f"{total_price_airbus+total_price_boeing:,} $")
     
 if Plane.get_hub_to_dest(hub, dest):
